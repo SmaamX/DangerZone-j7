@@ -532,7 +532,7 @@
 		mode = <2>;
 		resolution = <1080 1920>;
 		size = <70 121>;
-		timing,refresh = <60>;
+		timing,refresh = <70>;
 		timing,h-porch = <1 1 1>;
 		timing,v-porch = <12 1 1>;
 		timing,dsi-hs-clk = <1024>;
@@ -959,15 +959,15 @@
 			regulators {
 				s2mu003-buck1 {
 					regulator-name = "dcdc";
-					regulator-min-microvolt = <600000>;
-					regulator-max-microvolt = <3000000>;
+					regulator-min-microvolt = <1000000>;
+					regulator-max-microvolt = <4200000>;
 					regulator-always-on;
 					regulator-boot-on;
 				};
 				s2mu003-ldo1 {
 					regulator-name = "ldo1";
-					regulator-min-microvolt = <800000>;
-					regulator-max-microvolt = <3000000>;
+					regulator-min-microvolt = <1000000>;
+					regulator-max-microvolt = <4200000>;
 					regulator-always-on;
 					regulator-boot-on;
 				};
@@ -981,17 +981,17 @@
 				s2mu003-leds1 {
 					ledname = "leds-sec1";
 					id = <0>;
-					brightness = <0x17>;
+					brightness = <0x90>;
 					timeout = <0x0>;
-					max-brightness = <0x15>;
+					max-brightness = <0x90>;
 				};
 
 				s2mu003-leds2 {
 					ledname = "leds-sec2";
 					id = <1>;
-					brightness = <0x02>;
+					brightness = <0x3C>;
 					timeout = <0x0>;
-					max-brightness = <0xf>;
+					max-brightness = <0x3C>;
 				};
 			};
 		};
@@ -1220,6 +1220,8 @@
 
 		mif,ap_clk_table = <
 			/* khz */
+			1800000
+			1700000
 			1600000
 			1500000
 			1400000
@@ -1234,18 +1236,38 @@
 			500000
 			400000
 			300000
+			200000
+			100000
+			50000
+			10000
+			5000
+			1000
 			>;
 
 		mif,mif_clk_table = <
 			/* khz */
+			845000
+        	825000
 			825000
+			825000
+			825000
+			825000
+			728000
 			728000
 			667000
 			559000
+			559000
 			416000
-			338000
-			273000
-			200000
+			416000
+			416000
+			0
+			0
+			0
+			0
+			0
+			0
+			0
+			0
 			>;
 	};
 
@@ -1300,3 +1322,4 @@
 		io-channel-ranges;
 	};
 };
+flash
