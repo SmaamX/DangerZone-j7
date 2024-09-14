@@ -216,10 +216,10 @@ static int ktd2692_parse_dt(struct device *dev,
 	int ret = 0;
 
 	/* Defulat Value */
-	pdata->LVP_Voltage = KTD2692_DISABLE_LVP;
+	pdata->LVP_Voltage = KTD2692_3_8V;
 	pdata->flash_timeout = KTD2692_TIMER_1049ms;	/* default */
-	pdata->min_current_value = KTD2692_MIN_CURRENT_240mA;
-	pdata->movie_current_value = KTD2692_MOVIE_CURRENT5;
+	pdata->min_current_value = KTD2692_MIN_CURRENT_300mA;
+	pdata->movie_current_value = KTD2692_MOVIE_CURRENT16;
 	pdata->flash_current_value = KTD2692_FLASH_CURRENT16;
 	pdata->mode_status = KTD2692_DISABLES_MOVIE_FLASH_MODE;
 
