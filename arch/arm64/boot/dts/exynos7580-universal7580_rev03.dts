@@ -674,7 +674,7 @@
 			regulators {
 				buck1_reg: BUCK1 {
 					regulator-name = "cpu-cluster.1";
-					regulator-min-microvolt = <600000>;
+					regulator-min-microvolt = <850000>;
 					regulator-max-microvolt = <1400000>;
 					regulator-always-on;
 					regulator-boot-on;
@@ -684,7 +684,7 @@
 
 				buck2_reg: BUCK2 {
 					regulator-name = "cpu-cluster.0";
-					regulator-min-microvolt = <600000>;
+					regulator-min-microvolt = <850000>;
 					regulator-max-microvolt = <1400000>;
 					regulator-always-on;
 					regulator-boot-on;
@@ -1489,6 +1489,8 @@
 
 		mif,ap_clk_table = <
 			/* khz */
+			1800000
+			1700000
 			1600000
 			1500000
 			1400000
@@ -1503,18 +1505,38 @@
 			500000
 			400000
 			300000
+			200000
+			100000
+			50000
+			10000
+			5000
+			1000
 			>;
 
 		mif,mif_clk_table = <
 			/* khz */
+			845000
+        	825000
 			825000
+			825000
+			825000
+			825000
+			728000
 			728000
 			667000
 			559000
+			559000
 			416000
-			338000
-			273000
-			200000
+			416000
+			416000
+			0
+			0
+			0
+			0
+			0
+			0
+			0
+			0
 			>;
 	};
 
