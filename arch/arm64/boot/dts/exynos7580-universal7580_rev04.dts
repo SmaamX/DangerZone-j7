@@ -443,8 +443,8 @@
 	};
 
 	i2c@13860000 {
-		samsung,i2c-sda-delay = <100>;
-		samsung,i2c-max-bus-freq = <400000>;
+		samsung,i2c-sda-delay = <1>;
+		samsung,i2c-max-bus-freq = <450000>;
 		status = "okay";
 		#address-cells = <1>;
 		#size-cells = <0>;
@@ -1225,7 +1225,7 @@
 		mode = <2>;
 		resolution = <1080 1920>;
 		size = <70 121>;
-		timing,refresh = <60>;
+		timing,refresh = <70>;
 		timing,h-porch = <1 1 1>;
 		timing,v-porch = <12 1 1>;
 		timing,dsi-hs-clk = <1024>;
@@ -1531,6 +1531,8 @@
 
 		mif,ap_clk_table = <
 			/* khz */
+			1800000
+			1700000
 			1600000
 			1500000
 			1400000
@@ -1545,18 +1547,38 @@
 			500000
 			400000
 			300000
+			200000
+			100000
+			50000
+			10000
+			5000
+			1000
 			>;
 
 		mif,mif_clk_table = <
 			/* khz */
+			845000
+        	825000
 			825000
+			825000
+			825000
+			825000
+			728000
 			728000
 			667000
 			559000
+			559000
 			416000
-			338000
-			273000
-			200000
+			416000
+			416000
+			0
+			0
+			0
+			0
+			0
+			0
+			0
+			0
 			>;
 	};
 
