@@ -39,11 +39,11 @@
 #define MODULE_NAME                   "accelerometer_sensor"
 
 #define CALIBRATION_FILE_PATH         "/efs/FactoryApp/accel_calibration_data"
-#define CALIBRATION_DATA_AMOUNT       20
+#define CALIBRATION_DATA_AMOUNT       40
 #define MAX_ACCEL_1G                  8192
 
-#define K2HH_DEFAULT_DELAY            200000000LL
-#define K2HH_MIN_DELAY                5000000LL
+#define K2HH_DEFAULT_DELAY            9000000LL
+#define K2HH_MIN_DELAY                500000LL
 
 #define CHIP_ID_RETRIES               3
 #define ACCEL_LOG_TIME                15 /* 15 sec */
@@ -60,9 +60,9 @@
 #define K2HH_MODE_SUSPEND             0
 #define K2HH_MODE_NORMAL              1
 
-#define SENSITIVITY_2G                61
-#define SENSITIVITY_4G                122
-#define SENSITIVITY_8G                244
+#define SENSITIVITY_2G                1952
+#define SENSITIVITY_4G                3906
+#define SENSITIVITY_8G                7812
 
 #define K2HH_RANGE_2G                 0
 #define K2HH_RANGE_4G                 1
@@ -127,7 +127,7 @@
 #define K2HH_ACC_BW_SCALE_ODR_ENABLE  0x08
 #define K2HH_ACC_BW_SCALE_ODR_DISABLE 0x00
 
-#define DYNAMIC_THRESHOLD             5000
+#define DYNAMIC_THRESHOLD             40000
 
 enum {
 	OFF = 0,
@@ -204,12 +204,12 @@ struct k2hh_acc_odr {
 
 const struct k2hh_acc_odr k2hh_acc_odr_table[] = {
 	{  2, ACC_ODR800},
-	{  3, ACC_ODR400},
-	{  5, ACC_ODR200},
-	{ 10, ACC_ODR100},
+	{  3, ACC_ODR800},
+	{  5, ACC_ODR800},
+	{ 10, ACC_ODR800},
 #ifndef OUTPUT_ALWAYS_ANTI_ALIASED
-	{ 20, ACC_ODR50},
-	{100, ACC_ODR10},
+	{ 20, ACC_ODR800},
+	{100, ACC_ODR800},
 #endif
 };
 
@@ -319,7 +319,7 @@ static int k2hh_set_range(struct k2hh_p *data, unsigned char range)
 		new_range = K2HH_ACC_FS_8G;
 		break;
 	default:
-		new_range = K2HH_ACC_FS_2G;
+		new_range = K2HH_ACC_FS_8G;
 		break;
 	}
 
@@ -690,7 +690,7 @@ static ssize_t k2hh_enable_store(struct device *dev,
 	if (enable) {
 		if (pre_enable == OFF) {
 			k2hh_open_calibration(data);
-			k2hh_set_range(data, K2HH_RANGE_4G);
+			k2hh_set_range(data, K2HH_RANGE_8G);
 			k2hh_set_bw(data);
 			k2hh_set_mode(data, K2HH_MODE_NORMAL);
 			atomic_set(&data->enable, ON);
