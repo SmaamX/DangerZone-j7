@@ -787,7 +787,7 @@ struct devfreq_clk_states aclk_fimc_fd_300_isp_266_list = {
 };
 
 struct devfreq_opp_table devfreq_isp_opp_list[] = {
-	{ISP_LV0, 530000, 1200000},
+	{ISP_LV0, 730000, 1500000},
 	{ISP_LV1, 430000, 1200000},
 	{ISP_LV2, 400000, 1200000},
 	{ISP_LV3, 334000, 1200000},
@@ -796,7 +796,7 @@ struct devfreq_opp_table devfreq_isp_opp_list[] = {
 };
 
 struct devfreq_clk_info isp_pll_freq[] = {
-	{ISP_LV0, 1060 * MHZ, 0, NULL},
+	{ISP_LV0, 1160 * MHZ, 0, NULL},
 	{ISP_LV1, 1060 * MHZ, 0, NULL},
 	{ISP_LV2,  860 * MHZ, 0, NULL},
 	{ISP_LV3,  860 * MHZ, 0, NULL},
@@ -1310,7 +1310,7 @@ struct devfreq_clk_list devfreq_mif_clk[MIF_CLK_COUNT] = {
 };
 
 struct devfreq_opp_table devfreq_mif_opp_list[] = {
-	{MIF_LV0, 925000, 1300000},
+	{MIF_LV0,1525000, 1800000},
 	{MIF_LV1, 825000, 1200000},
 	{MIF_LV2, 728000, 1200000},
 	{MIF_LV3, 667000, 1200000},
@@ -1358,7 +1358,7 @@ struct devfreq_clk_states aclk_mif_100_media_pll_list = {
 };
 
 struct devfreq_clk_info sclk_clk_phy[] = {
-	{MIF_LV0, 925 * MHZ, 0, NULL},
+	{MIF_LV0, 1025 * MHZ, 0, NULL},
 	{MIF_LV1, 825 * MHZ, 0, NULL},
 	{MIF_LV2, 728 * MHZ, 0, NULL},
 	{MIF_LV3, 667 * MHZ, 0, NULL},
