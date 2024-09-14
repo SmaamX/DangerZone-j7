@@ -626,10 +626,10 @@ static void sm5703_set_aicl_level(struct sm5703_charger_data *charger)
 	int aicl;
 	switch(charger->cable_type) {
 		case POWER_SUPPLY_TYPE_USB ... POWER_SUPPLY_TYPE_USB_ACA:
-			aicl = SM5703_AICL_4500MV;
+			aicl = SM5703_AICL_4900MV;
 			break;
 		default:
-			aicl = SM5703_AICL_4500MV;
+			aicl = SM5703_AICL_4900MV;
 	}
 	mutex_lock(&charger->io_lock);
 	sm5703_assign_bits(charger->sm5703->i2c_client,
@@ -1503,13 +1503,13 @@ static int sm5703_charger_parse_dt(struct device *dev,
 	ret = of_property_read_u32(np, "chg_aiclth", &pdata->chg_aiclth);
 	if (ret < 0) {
 		pr_info("%s : cannot get chg aiclth\n", __func__);
-		pdata->chg_aiclth = 4500;
+		pdata->chg_aiclth = 4870;
 	}
 
 	ret = of_property_read_u32(np, "fg_vol_val", &pdata->fg_vol_val);
 	if (ret < 0) {
 		pr_info("%s : cannot get fg_vol_val\n", __func__);
-		pdata->fg_vol_val = 4350;
+		pdata->fg_vol_val = 4700;
 	}
 
 	ret = of_property_read_u32(np, "fg_soc_val", &pdata->fg_soc_val);
@@ -1531,7 +1531,7 @@ static int sm5703_charger_parse_dt(struct device *dev,
 			&pdata->chg_float_voltage);
 	if (ret < 0) {
 		pr_info("%s : cannot get chg float voltage\n", __func__);
-		pdata->chg_float_voltage = 4350;
+		pdata->chg_float_voltage = 4700;
 	}
 
 	pdata->chgen_gpio = of_get_named_gpio(np, "battery,chg_gpio_en", 0);
